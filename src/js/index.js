@@ -1,4 +1,5 @@
 
+ window.onload = function() { 
 let option = {
 widthStart : 9.4,
 widthEnd : 0.8,
@@ -44,7 +45,7 @@ var flower = Flw.ControledFlower.create( container, option  );
 
 
 var deltaProgress = 100;
-var maxProgress = 1000;
+var maxProgress = 10000;
 
 var btn = document.getElementById('btn');
 var popup = document.getElementById('container_popup');
@@ -55,6 +56,9 @@ function sleep(ms) {
 }
 
 async function add(value){
+  if(value ==0){
+    return
+  }else{
     while(anime){
         await sleep(200);
     }
@@ -66,7 +70,7 @@ async function add(value){
     
     span.textContent=value;
 
-    flower.tick( deltaProgress / maxProgress );
+    flower.tick( value / maxProgress );
     setTimeout(function(){
         popup.style.opacity= 0;
 
@@ -75,7 +79,7 @@ async function add(value){
             anime = false;
         },1200);
     },1200);
-
+  }
 }
 
 
@@ -89,16 +93,26 @@ var client  = mqtt.connect({
 client.on('connect', function () {
   client.subscribe('test', function (err) {
     if (!err) {
-      client.publish('test', 'Hello mqtt')
+      client.publish('log', 'Hello mqtt')
     }
   })
 })
 
+var log = document.getElementById('log');
+
 client.on('message', function (topic, message) {
   // message is Buffer
-  console.log(message.toString())
-  client.end()
+  console.info("["+topic+"] "+message.toString())
+  if(topic === "test"){
+    add(parseInt(message.toString()));
+    var pLog = document.createElement("p");     
+    var date = new Date();
+    pLog.innerHTML= "<strong>"+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"</strong> => "+message.toString()+"</p>";
+    log.appendChild(pLog);
+  }
 })
+var nDelta = document.getElementById('numberDelta');
 btn.addEventListener('click', function(){
-    add(deltaProgress);
+    add(nDelta.value);
 })
+ }

@@ -3,14 +3,39 @@
     <head>
         <!-- <link  rel="stylesheet" href="./style.css"> -->
         <script type="text/javascript" src="./Flw.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-            <div id="container" style="height:800px;width:600px;position:absolute;left:350px;top:30px;">
-                <p id="container_popup" >+<span id="container_popup_value"></span></p>
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <div class="col-10 h-100">
+                    <div class="d-flew h-100">
+                        <div id="container" class="m-auto"  style="width: 600px; height: 700px;" >
+                            <p id="container_popup" >+<span id="container_popup_value"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 h-100" >    
+                    
+                        <div class="row">
+                            
+                            <input class="form-control" type="number" id="numberDelta"/>
+                                <button id="btn" class="form-control btn btn-primary">
+                                    OK
+                                </button>
+                            </div>
+                        <div class="row h-100">
+                            <div class="container" id="log">
+
+                            </div>
+                            
+                        </div>
+
+
+                    
+                </div>
             </div>
-            <button id="btn">
-                OK
-            </button>
+        </div>
             <script src="./bundle.js"></script>
     </body>
 </html>

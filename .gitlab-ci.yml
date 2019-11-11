@@ -1,0 +1,13 @@
+
+pages:
+  stage: deploy
+  before_script:
+    - npm install
+  script:
+    - npm run build
+    - mkdir public
+    - cp -r dist/ public/
+  artifacts:
+    paths:
+      - public
+

@@ -1,7 +1,10 @@
-body{
+body, html{
     background: black;
+    height: 100%;
 }
-
+#container{
+    position: relative;
+}
 #container_popup{
     border: 1px solid #666;
     font-size: 24px;
@@ -14,4 +17,9 @@ body{
     opacity: 0.8;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: 1.5s ease;
+}
+#log{
+    background: gray;
+    font-family: arial;
+    padding: 1%;
 }
