@@ -1,0 +1,50 @@
+hide method
+hide attribute
+
+class Donnee
+class DonneeComportement
+class DonneeEnv
+
+Donnee <|-- DonneeEnv
+Donnee <|-- DonneeComportement
+class Capteur
+
+class Fixe
+
+class Mobile
+
+Capteur <|-- Mobile
+Capteur <|-- Fixe
+
+
+class Algo
+
+DonneeEnv -- Algo
+DonneeComportement -- Algo
+
+class Pattern
+Algo - Pattern
+
+
+class Objet
+Pattern- Objet
+
+class Famille
+
+class Membre
+
+Famille -- Membre
+
+Objet- Famille
+
+Objet - Membre
+
+class Foyer 
+
+Famille - Foyer
+
+class Endroit
+
+
+Endroit - Foyer
+Fixe -Endroit

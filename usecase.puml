@@ -1,0 +1,8 @@
+actor Marguerite
+
+Marguerite --> (Accéder à ses données)
+
+(Accéder à ses données) <.. (Récuperer ses données) : <<includes>>
+
+
+Marguerite --> (Agir sur l'objet)
